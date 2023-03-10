@@ -2,13 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    name: String,
-    email: String,
-    password: String
-});
-
-mongoose.connect('mongodb://127.0.0.1:27017/',
+mongoose.connect('mongodb://127.0.0.1:27017/my_serverlessDB',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -17,7 +11,26 @@ mongoose.connect('mongodb://127.0.0.1:27017/',
   .then(() => console.log('Connected!'))
   .catch((e)=>console.log("Error While Connecting to DB ",e));
 
-const User = mongoose.model("User",userSchema);
+const userSchema = new Schema({
+    name: {
+      type : String,
+      required : true
+    },
+    email: {
+      type : String,
+      required : true
+    },
+    password: {
+      type : String,
+      required : true
+    },
+    username : {
+      type : String,
+      required : true
+    }
+});
+
+const User = mongoose.model("Users",userSchema);
 
 module.exports = User
 

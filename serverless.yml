@@ -17,3 +17,9 @@ functions:
     - httpApi:
         path: /
         method: get
+  postUser:
+    handler: src/handlers/postUser.postUser
+    events:
+    - httpApi:
+        path: /
+        method: post
