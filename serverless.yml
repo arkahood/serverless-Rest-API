@@ -1,4 +1,4 @@
-service: serverless
+service: my-app
 frameworkVersion: '3'
 
 provider:
@@ -23,3 +23,9 @@ functions:
     - httpApi:
         path: /
         method: post
+  deleteUser:
+    handler: src/handlers/deleteUser.deleteUser
+    events:
+    - httpApi:
+        path: /
+        method: delete
