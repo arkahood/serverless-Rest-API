@@ -29,3 +29,12 @@ functions:
     - httpApi:
         path: /
         method: delete
+  putUser:
+    handler: src/handlers/putUser.putUser
+    events:
+    - httpApi:
+        path: /
+        method: put
+        RequestParameters:
+          - method.request.querystring.email:
+            Required: true
